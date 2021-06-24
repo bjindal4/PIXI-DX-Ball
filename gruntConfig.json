@@ -1,0 +1,160 @@
+{
+  "paths": {
+    "sourcePath": "source/",
+    "buildPath": "build/",
+    "jsPath": "js/",
+    "libPath": "lib/",
+    "tsPath": "ts/"
+  },
+  "libVersions": {
+    "pixi": "6.0",
+    "pixi-tween": "unknown"
+  },
+  "libIncludes": [    
+    "pixi.js",
+    "pixi-tween.js"
+  ],
+  "clean": {
+    "options": {
+      "force": true
+    }
+  },
+  "ts": {
+    "options": {
+      "fast": "never",
+      "sourceMap": false,
+      "inlineSourceMap": false,
+      "noResolve": false,
+      "noUnusedLocals": false,
+      "skipLibCheck": true,
+      "pretty": true
+    },
+    "default": {
+      "tsconfig": true
+    }
+  },
+  "concat": {
+    "options": {
+      "separator": "\n",
+      "expand": true,
+      "nonull": true,
+      "stripBanners": true,
+      "sourceMap": false,
+      "banner": "\"\";\n"
+    }
+  },
+  "uglify": {
+    "options": {
+      "compress": {
+        "drop_console": true,
+        "dead_code": true
+      },
+      "preserveComments": false,
+      "quoteStyle": 1,
+      "screwIE8": true,
+      "sourceMap": false,
+      "mangle": {
+        "reserved": [
+          "ingenuity",
+          "PIXI"
+        ]
+      },
+      "mangleProperties": false,
+      "unsafe": false,
+      "conditionals": true,
+      "comparisons": true,
+      "evaluate": true,
+      "booleans": true,
+      "loops": true,
+      "unused": true,
+      "hoist_funs": true,
+      "hoist_vars": false,
+      "if_return": true,
+      "join_vars": true,
+      "cascade": true,
+      "side_effects": true,
+      "warnings": true,
+      "reserveDOMCache": true
+    }
+  },
+  "copy": {
+    "options": {
+      "expand": true
+    },
+    "debug": {
+      "files": [
+        {
+          "expand": true,
+          "cwd": "<%= libDir %>",
+          "src": [
+            "*.js"
+          ],
+          "dest": "<%= jsDestDir %>"
+        }
+      ]
+    },    
+    "main": {
+      "files": [       
+        {
+          "expand": true,
+          "cwd": "<%= sourcePath %>",
+          "src": [
+            "*.html"
+          ],
+          "dest": "<%= buildPath %>"
+        }
+      ]
+    }
+  },
+  "updateGameDebug": {
+    "debug": {
+      "options": {
+        "debug": true
+      },
+      "files": [
+        {
+          "dest": "<%= buildPath %>index.html",
+          "src": "<%= sourcePath %>index.html"
+        }
+      ]
+    },
+    "build": {
+      "options": {
+        "debug": false
+      },
+      "files": [
+        {
+          "dest": "<%= buildPath %>index.html",
+          "src": "<%= sourcePath %>index.html"
+        }
+      ]
+    }
+  },
+  "watch": {
+    "options": {
+      "atBegin": true,
+      "livereload": true,
+      "event": [
+        "all"
+      ]
+    }
+  },
+  "browserSync": {
+    "dev": {
+      "bsFiles": {
+        "src": "build/**/*"
+      },
+      "options": {
+        "port": 8080,
+        "watchTask": true,
+        "server": "./build",
+        "ui": {
+          "port": 8082,
+          "weinre": {
+            "port": 9090
+          }
+        }
+      }
+    }
+  }
+}

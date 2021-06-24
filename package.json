@@ -1,0 +1,34 @@
+{
+  "name": "dxball",
+  "version": "",
+  "description": "",
+  "main": "source/index.html",
+  "author": "",
+  "license": "",
+  "homepage": "",
+  "devDependencies": {
+    "@types/lodash": "^4.14.149",
+    "compression": "^1.7.2",
+    "eslint": "^4.18.0",
+    "grunt": "^1.0.4",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-config-dir": "^0.3.2",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-ts": "^6.0.0-beta.17",
+    "jshint": "^2.9.5",
+    "load-grunt-tasks": "^3.5.2",
+    "tslint": "^5.9.1",
+    "typescript": "^3.7.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npm install -g grunt-cli http-server typescript@2.7",
+    "build": "grunt build",
+    "debug": "grunt debug",
+    "watch": "grunt"
+  }
+}
